@@ -6,7 +6,7 @@ module.exports = {
       startTime,
       endTime
     } = req.body;
-    console.log(value, startTime, endTime)
+    console.log(startTime, endTime)
     try {
       let photos_Array = await Photo.find({
         timestamp: {
