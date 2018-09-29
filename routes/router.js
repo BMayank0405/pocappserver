@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
 const multer = require('multer')
+const path = require('path')
 const {
   savePhotos
 } = require("../controller/SavePhotos")
@@ -18,18 +19,10 @@ router.use(bodyParser.urlencoded({
 router.use(bodyParser.json());
 
 
-const storage = multer.diskStorage({
-  filename: (req, file, callback) => {
-    callback(null, Date.now(), file.originalname)
-  }
-})
 
-const upload = multer({
-  storage
-}).single('image')
 
 router.post('/getphotos', getPhotos)
 router.post('/user', registerUser)
-router.post('/savePhotos', upload, savePhotos)
+router.post('/savePhotos', savePhotos)
 
 module.exports = router;

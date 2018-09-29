@@ -1,24 +1,42 @@
 const User = require('../model/user')
 const Photo = require('../model/photo')
 const cloudinary = require('cloudinary')
+const storage = multer.diskStorage({
+  filename: (req, file, callback) => {
+    callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+  }
+})
 
+const upload = multer({
+  storage
+}).single('image')
 
 module.exports = {
   savePhotos: async(req, res) => {
-    // try {
-    console.log(req)
-    return res.status(200).json({
 
-        "msg": "done"
+    upload(req, res, (err) => {
+        if (err) return res.status(200).json({
+          "msg": "done"
+        })
+        else {
+          console.log(req.file)
+          return res.status(200).json({
+
+            "msg": "done"
+          })
+        }
       })
-      //   const user = await User.findOne({
-      //     email
-      //   });
-      //   if (!user || Object.keys(user).length == 0)
-      //     return res.status(403).json({
-      //       'error': "Cannot upload photo not an authentic user"
-      //     });
-      //   else {
+      // try {
+
+
+    //   const user = await User.findOne({
+    //     email
+    //   });
+    //   if (!user || Object.keys(user).length == 0)
+    //     return res.status(403).json({
+    //       'error': "Cannot upload photo not an authentic user"
+    //     });
+    //   else {
 
     //     cloudinary.config({
     //       cloud_name: 'bmayank',
