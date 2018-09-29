@@ -18,7 +18,7 @@ module.exports = {
           $and: [{
             timestamp: {
               $gte: startTime,
-              $lt: endTime
+              $lte: endTime
             }
           }, {
             userId: user._id
@@ -27,8 +27,8 @@ module.exports = {
 
         res.status(200).json(photos_Array);
       } catch (e) {
-        console.log(err)
-        if (err) return res.status(500).send({
+        console.log(e)
+        if (e) return res.status(500).send({
           "msg": "Image fetch has failed.Please try again later."
         });
       }
