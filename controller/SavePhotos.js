@@ -3,35 +3,27 @@ const Photo = require('../model/photo')
 const cloudinary = require('cloudinary')
 const multer = require('multer')
 const path = require('path')
-const storage = multer.diskStorage({
-  filename: (req, file, callback) => {
-    callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-  }
-})
-
-const upload = multer({
-  storage
-}).single('image')
 
 module.exports = {
   savePhotos: async(req, res) => {
-
-return res.status(200).json({
-      "msg": "done"
-    })
-    // upload(req, res, (err) => {
-    //     if (err) return res.status(200).json({
-    //       "msg": "done"
-    //     })
-    //     else {
-    //       console.log(req.file)
-    //       return res.status(200).json({
+    console.log(req.body)
+    console.log(req.files)
+    return res.status(200).json({
+        "msg": "done"
+      })
+      // upload(req, res, (err) => {
+      //     if (err) return res.status(200).json({
+      //       "msg": "done"
+      //     })
+      //     else {
+      //       console.log(req.file)
+      //       return res.status(200).json({
 
     //         "msg": "done"
     //       })
     //     }
     //   })
-      // try {
+    // try {
 
 
     //   const user = await User.findOne({

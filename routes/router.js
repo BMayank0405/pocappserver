@@ -16,12 +16,21 @@ router.use(bodyParser.urlencoded({
   extended: false
 }));
 router.use(bodyParser.json());
+const storage = multer.diskStorage({
+  filename: (req, file, callback) => {
+    callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+  }
+})
+
+const upload = multer({
+  storage
+}).single('image')
 
 
 
 
 router.post('/getphotos', getPhotos)
 router.post('/user', registerUser)
-router.post('/savePhotos', savePhotos)
+router.post('/savePhotos', upload, savePhotos)
 
 module.exports = router;
