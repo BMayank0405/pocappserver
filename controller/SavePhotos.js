@@ -1,8 +1,6 @@
 const User = require('../model/user')
 const Photo = require('../model/photo')
 const cloudinary = require('cloudinary')
-const multer = require('multer')
-const path = require('path')
 
 module.exports = {
   savePhotos: async(req, res) => {

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const bodyParser = require('body-parser');
+const multer = require('multer')
+const path = require('path')
 
 const {
   savePhotos
@@ -12,10 +13,6 @@ const {
   registerUser
 } = require("../controller/User")
 
-router.use(bodyParser.urlencoded({
-  extended: false
-}));
-router.use(bodyParser.json());
 const storage = multer.diskStorage({
   filename: (req, file, callback) => {
     callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
