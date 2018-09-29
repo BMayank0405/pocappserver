@@ -5,7 +5,7 @@ const cloudinary = require('cloudinary')
 
 module.exports = {
   savePhotos: async(req, res) => {
-    try {
+    // try {
       console.log(req.body)
       //   const user = await User.findOne({
       //     email
