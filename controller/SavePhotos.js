@@ -36,7 +36,7 @@ module.exports = {
             const url = result.secure_url;
             const newPhoto = new Photo({
               timestamp,
-              userId: user.userId,
+              userId: user._id,
               url
             });
             try {
