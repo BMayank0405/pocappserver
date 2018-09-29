@@ -24,8 +24,6 @@ const upload = multer({
 }).single('image')
 
 
-
-
 router.post('/getphotos', getPhotos)
 router.post('/user', registerUser)
 router.post('/savePhotos', upload, savePhotos)
