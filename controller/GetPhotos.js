@@ -18,9 +18,12 @@ module.exports = {
 
       res.status(200).json(photos_Array);
     } catch (err) {
-      if (err) return res.status(500).send({
-        error: err.errmsg
-      });
+      {
+        console.log(err)
+        if (err) return res.status(500).send({
+          "msg": "Image fetch has failed.Please try again later."
+        });
+      }
     }
   }
 };
