@@ -24,7 +24,7 @@ module.exports = {
         api_secret: 'n1BAYe6ZObhnGVPkIvIqedyRyvE'
       })
 
-      cloudinary.uploader.upload(req.file.path, async(error, result) => {
+      cloudinary.v2.uploader.upload(req.file.path, async(error, result) => {
           if (error) {
             console.log('err', error, result)
             return res.status(400).json({
