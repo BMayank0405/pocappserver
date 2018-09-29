@@ -5,7 +5,7 @@ const cloudinary = require('cloudinary')
 module.exports = {
   savePhotos: async(req, res) => {
     console.log(req.body)
-    console.log(req.files)
+    console.log("file", req.file)
     return res.status(200).json({
         "msg": "done"
       })
