@@ -1,5 +1,5 @@
 const Photo = require("../model/photo");
-
+const User = require('../model/user')
 module.exports = {
   getPhotos: async(req, res, next) => {
     let {
