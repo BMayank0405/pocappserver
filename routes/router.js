@@ -30,6 +30,6 @@ const upload = multer({
 
 router.post('/getphotos', getPhotos)
 router.post('/user', registerUser)
-router.post('/savePhotos', upload, savePhotos)
+router.post('/savePhotos', savePhotos)
 
 module.exports = router;
