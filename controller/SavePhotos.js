@@ -26,7 +26,7 @@ module.exports = {
 
       cloudinary.uploader.upload(req.file.path, async(error, result) => {
           if (error) {
-            console.log(error)
+            console.log('err', error, result)
             return res.status(400).json({
               "msg": "not done"
             });
