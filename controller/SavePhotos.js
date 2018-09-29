@@ -16,18 +16,21 @@ const upload = multer({
 module.exports = {
   savePhotos: async(req, res) => {
 
-    upload(req, res, (err) => {
-        if (err) return res.status(200).json({
-          "msg": "done"
-        })
-        else {
-          console.log(req.file)
-          return res.status(200).json({
+return res.status(200).json({
+      "msg": "done"
+    })
+    // upload(req, res, (err) => {
+    //     if (err) return res.status(200).json({
+    //       "msg": "done"
+    //     })
+    //     else {
+    //       console.log(req.file)
+    //       return res.status(200).json({
 
-            "msg": "done"
-          })
-        }
-      })
+    //         "msg": "done"
+    //       })
+    //     }
+    //   })
       // try {
 
 

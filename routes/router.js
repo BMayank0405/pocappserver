@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const multer = require('multer')
-const path = require('path')
+
 const {
   savePhotos
 } = require("../controller/SavePhotos")
