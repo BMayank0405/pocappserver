@@ -58,12 +58,12 @@ module.exports = {
       }
 
     } catch (err) {
-      if (err)
-        console.log(err) {
-          return res.status(500).send({
-            "msg": "Internal Server Error"
-          });
-        }
+      if (err) {
+        console.log(err)
+        return res.status(500).send({
+          "msg": "Internal Server Error"
+        });
+      }
     }
   }
 };
