@@ -33,11 +33,13 @@ module.exports = {
             });
           } else {
             console.log(result)
-            const url = result.secure_url;
+            const url = result.secure_url
             const newPhoto = new Photo({
               timestamp,
               userId: user._id,
-              url
+              url: result.secure_url,
+              height: result.height,
+              width: result.width
             });
             try {
               await newPhoto.save();
