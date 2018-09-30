@@ -13,7 +13,6 @@ module.exports = {
       const user = await User.findOne({
         email
       });
-      console.log(user)
       if (!user || Object.keys(user).length == 0)
         return res.status(403).json({
           'error': "Cannot upload photo not an authentic user"
@@ -33,6 +32,7 @@ module.exports = {
               "msg": "Upload to cloud failed"
             });
           } else {
+            console.log(result)
             const url = result.secure_url;
             const newPhoto = new Photo({
               timestamp,
