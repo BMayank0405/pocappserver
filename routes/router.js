@@ -25,7 +25,7 @@ const upload = multer({
 
 
 router.post('/getphotos', getPhotos)
-router.post('/user', registerUser)
+router.post('/users', registerUser)
 router.post('/savePhotos', upload, savePhotos)
 
 module.exports = router;
